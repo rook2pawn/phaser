@@ -1051,12 +1051,12 @@ var SceneManager = new Class({
         if (scene.sys.isSleeping())
         {
             //  Sleeping?
-            scene.sys.wake();
+            scene.sys.wake(data);
         }
         else if (scene.sys.isBooted && !scene.sys.isActive())
         {
             //  Paused?
-            scene.sys.resume();
+            scene.sys.resume(data);
         }
         else
         {

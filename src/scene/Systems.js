@@ -211,7 +211,7 @@ var Systems = new Class({
 
         /**
          * The Scene Update function.
-         * 
+         *
          * This starts out as NOOP during init, preload and create, and at the end of create
          * it swaps to be whatever the Scene.update function is.
          *
@@ -370,7 +370,7 @@ var Systems = new Class({
      *
      * @return {Phaser.Scenes.Systems} This Systems object.
      */
-    resume: function ()
+    resume: function (data)
     {
         if (!this.settings.active)
         {
@@ -378,7 +378,7 @@ var Systems = new Class({
 
             this.settings.active = true;
 
-            this.events.emit('resume', this);
+            this.events.emit('resume', this, data);
         }
 
         return this;
@@ -417,7 +417,7 @@ var Systems = new Class({
      *
      * @return {Phaser.Scenes.Systems} This Systems object.
      */
-    wake: function ()
+    wake: function (data)
     {
         var settings = this.settings;
 
@@ -426,7 +426,7 @@ var Systems = new Class({
         settings.active = true;
         settings.visible = true;
 
-        this.events.emit('wake', this);
+        this.events.emit('wake', this, data);
 
         if (settings.isTransition)
         {
